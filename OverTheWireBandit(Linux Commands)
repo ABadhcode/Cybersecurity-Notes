@@ -1,0 +1,149 @@
+1. ssh command
+ssh(SecureSheelProtocol)
+It is used in may Operating Systems and its major uses are 
+A. For login to a shell on a remote host 
+B. For executing a single command on a remote host 
+
+Syntax : ssh -p port_number user@IP
+
+
+2. ls - we can see files there in that directory or pc
+
+
+
+3. cd <filename> - opnes directory or parent folder
+
+
+4. file <filename> - tells whats there in file, like ASCII TEXT, Numbers etc etc
+
+to find whats there in the file use file <filename> command
+
+*Note : HUman-Readable file means, file has ASCII Text*
+
+
+5. cat <filename> - display contents in a file
+
+
+6. find  - to find files by a particualr name
+
+find - find also can be used in this way to find something on server, pc ..
+
+find / -user bandit7 - used to find files owned by user badit7
+"/" - searches entire system
+
+find / -user bandit7 -group bandit6 
+-group : looks for files owned by group bandit6
+
+find / -user bandit7 -group bandit6 -size 33c 
+-size 33c : looks for files having size 33bytes
+
+find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+if permission denied comes then , we use 2>/dev?=/null to surpass that
+
+
+7. du file.txt - disk usage - tells how much storage a file is taking.
+
+
+8. grep 
+
+grep "Keyword" filename - used to find particular pattern or workds in a file.
+
+eg : grep "hello" <filename> : it will show only those lines where word hello appears.
+
+
+*NOTE : The safest and most universal method is to break the leading dash pattern by prefixing the filename with its relative path (./ for the current directory) or an absolute path.
+his forces the shell to treat the argument as a path instead of a command option.Read a file: cat ./-file.txt
+why  ./ - as sometimes file name starts with '-' or '/' which is a terminal command, so to tell the command that it is a filename we use ./*
+
+
+
+*NOTE : To handle spaces in a filename when using the command line or terminal, you must enclose the filename in *quotation marks or escape each space with a backslash.*
+Command-line interfaces treat spaces as "argument separators" (delimiters). If you type cat my report.txt, the system thinks you are looking for two separate files named my and report.txt
+eg : cat "my report.txt"
+or : cat "./my report.txt"*
+
+
+
+*NOTE : Files are hidden, so if a folder named folder1 is there and a file is hidden so
+do cd folder1
+do ls , if hidden file not found then do 
+find  (while being in folder 1)
+hidden fles will be shown*
+
+
+9. man <command> - man  - manual i.e opens manula and tells what this command do
+
+eg : man ls  - will tell what ls command does
+
+10. sort <body> - sorts lines alphabetically or numerically 
+eg : file.text has - boy
+		     apple
+		     cat
+		     
+    sort file.text 
+    
+    then : 
+    apple
+    boy
+    cat
+    
+11. uniq - removes consecutive duplicate texts or detects consecutive duplicate text
+
+for deletion : uniq <filename>
+for detection: uniq -c <filename>
+
+
+
+sort <filename> | uniq : sorts duplicate data togehter and uniq removes them while
+
+sort <filename> | uniq -c : sorts duplicate data together and uniq counts that how many times a number of word or lien is being repeated
+
+
+
+12. strings : Extracts readable text from a binary file
+
+syntax : strings <filename>
+base64 : used to encode,  decode data using base64
+
+For encode
+ echo "<filename>"| base64
+ 
+ for decode 
+ echo "<encodedtext>" | base64-d
+ 
+ 
+13. xxd : displays content of file in hexadecimal represntation 
+xxd <filename>
+
+14. bzip2 : uses bzip2 compression algortihm
+
+to compress : 
+bzip2 <filename>
+
+to decompress : 
+bzip2 -d <filename.bz2>
+
+
+15. gzip : used to compress files 
+
+to compress : 
+gzip <filename>
+
+to decompress : 
+gzip -d <filename.gz> 
+
+16. tr : used to replace or delete characters 
+
+to delete : 
+ 
+echo "hello123" | tr-d '0-9'   OUTPUT : hello
+
+To replace characters : 
+echo "hello" | tr 'e' '3'      OUTPUT : h3llo
+
+*NOTE  : ROT 13
+
+eg: all the lowercase and uppercase have been rotated by 13 positions
+It is called ROT 13 encoding..
+
+syntax to solve : tr 'A-Za-z' 'N-ZA-Mn-za-m' < filename*
