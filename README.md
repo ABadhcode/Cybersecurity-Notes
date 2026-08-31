@@ -1,2 +1,2 @@
 # Cybersecurity-Notes
-Cybersecuirty Notes.. 
+Cybersecurity Notes.. 
