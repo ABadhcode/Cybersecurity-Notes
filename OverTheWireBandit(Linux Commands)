@@ -147,3 +147,5 @@ eg: all the lowercase and uppercase have been rotated by 13 positions
 It is called ROT 13 encoding..
 
 syntax to solve : tr 'A-Za-z' 'N-ZA-Mn-za-m' < filename*
+
+DONE WITH MAJOR COMMANDS OF UBUNUTU ....
