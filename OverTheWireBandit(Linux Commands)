@@ -4,7 +4,7 @@ It is used in may Operating Systems and its major uses are
 A. For login to a shell on a remote host 
 B. For executing a single command on a remote host 
 
-Syntax : ssh -p port_number user@IP
+Syntax :  ssh -p port_number user@IP
 
 
 2. ls - we can see files there in that directory or desktop
