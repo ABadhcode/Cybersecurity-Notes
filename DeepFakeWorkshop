@@ -18,6 +18,7 @@ index of aadharcard    - - so in this whichever website has potential of data le
 
 2. crazycall.net  -> website used for call spoofing ..
 
+
 3. canarytoken -> webiste used for creating fake qr, fake app , so that when other person downloads it.. the persons data can be extracted.
 
 4. SQL Injection  - wikipedia  - code - 'OR' '1' = '1   .. go to any websites password or id, paste it and acces mil jaayega. 
@@ -59,3 +60,22 @@ Same is the case with microphones (mic) or any other electrical instruments.
 
 Apollos Telemedicine service
 
+Callibration setup , Certain aspect of lens not clear -- hence whenever the lens is not clear mobile asks to clear the lens / camera.
+
+
+The deepfake avatar or any persons deepfake .. if we use a voice clone model to mimic someone
+How to check for deepfake through audi and video ..
+
+1. Check whether the lip sync , lip movement is similar to the words utter
+2. Check pronounciation of words for the whole duration of video .. Check the consistency
+
+
+           DOMAIN ADAPTATION IN FORENSICS
+
+How to check about voice manipulation 
+How to implement it in deepfake checking model?
+
+1. Earth Mover Distance algorithm
+
+If clothes , hair , colour of any physical appearncer is changed,, then
+we can checkit through sub-pixel disturbance
