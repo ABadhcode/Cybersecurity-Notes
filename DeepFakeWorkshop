@@ -68,7 +68,7 @@ Callibration setup , Certain aspect of lens not clear -- hence whenever the lens
 
 
 The deepfake avatar or any persons deepfake .. if we use a voice clone model to mimic someone
-How to check for deepfake through audi and video ..
+How to check for deepfake through audio and video ..
 
 1. Check whether the lip sync , lip movement is similar to the words utter
 2. Check pronounciation of words for the whole duration of video .. Check the consistency
@@ -83,3 +83,10 @@ How to implement it in deepfake checking model?
 
 If clothes , hair , colour of any physical appearncer is changed,, then
 we can checkit through sub-pixel disturbance
+
+try- face detection and control in different kind of lightings
+git repo- desktop0
+
+session 2 - 
+
+
