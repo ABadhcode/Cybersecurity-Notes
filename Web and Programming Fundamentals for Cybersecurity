@@ -7,3 +7,31 @@ The web  is reffered to as client - server model
 where the computer that asks for data - client .. and computer that recieves the data - server
 
 The Client : 
+The devices the end user uses to acces the data
+
+The Client Program : 
+Program that allows users to make request , eg : Web Browser..etc
+
+so, InShort 
+A CLient , whether it is a machine or a program , is an appliance and a way to make requests through the web.
+
+The Server : 
+It is a computer program 
+It contains web resources, host web applications, stores users data.. etc
+It is used  to store hundreds or thousands of clients
+A Server is always listening for requests, as soon as it hears one , it responds.
+
+
+Types of servers : 
+1.Web Servers - Serve HTTP Request
+2.Databse Servers - Server SQL Requests
+
+THE Client - Server Model : 
+
+It is an architecture model that spilts computers into two things..
+The one which asks for data -> Client
+The one which recieves data -> Server
+
+Peer to Peer Model : 
+No such split is there
+Both the computers can reciev and send data.
