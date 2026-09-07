@@ -1,6 +1,7 @@
----- Web Fundamentals ----
+---- Web Fundamentals ----  by - The TechCave
+---- ---- ---- ----- ---- ----
 
-Client - Server Model : 
+1.) CLIENT - SERVER MODEL :  
 
 The web is a service that allows computers to share and exchange data
 The web  is reffered to as client - server model
@@ -35,3 +36,27 @@ The one which recieves data -> Server
 Peer to Peer Model : 
 No such split is there
 Both the computers can reciev and send data.
+
+---- ----- ----- ----- ---- ---- 
+
+2.) THE HTTPS AND THE WEB : 
+
+HTTP : HyperTextTransferPrototcol.
+HTTP is an application layer protocol that allows web - based applications to communicate and exchange data.
+
+It is the messanger of the web
+Used to deleiver content like images, text, data etc
+
+Three Important things about HTTP : 
+1. It is connectionless i.e after making the request, the clinet disconnects form the server, then when the response is ready,the cliend reconnects and delivers the response.
+
+2. The HTTP Can deliver an sort of data as long as both the computers are able to read it.
+
+3. The HTTP is stateless i.e The client and the sever knows about each other just during the current request, if disocnnected
+then they need to establish a new connection and provide information again.
+
+How the Web Works and How HTTP Makes it possible : 
+
+At first how the respose cycle works : 
+
+
