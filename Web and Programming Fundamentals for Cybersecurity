@@ -59,7 +59,7 @@ How the Web Works and How HTTP Makes it possible :
 
 At first how the respose cycle works : 
 At first when the user wants to see the website.. he will type the url and enter then
-Thd internet using tcp, IP, Protocols establishes the connection 
+The internet using tcp, IP, Protocols establishes the connection 
 After the establishment ,, the client sends an request to the server called HTTP Message
 The server processes the request and responds back.. and then both disconnects..
 
