@@ -63,4 +63,37 @@ The internet using tcp, IP, Protocols establishes the connection
 After the establishment ,, the client sends an request to the server called HTTP Message
 The server processes the request and responds back.. and then both disconnects..
 
+---- ----- ----- ----- ---- ---- 
 
+
+3.) API'S AND REST BASICS
+
+   API'S
+API is an way to let software components talk to each other
+
+Object-Oriented Example 
+code Example :
+---- ----- ----- ----- ---- ---- ----
+let objectA = {                      |          objectA API consists if two methods and two attributes : 
+     name : 'software component A',  |           objectA.name
+     language : 'javascript',        |           objectA.language
+     sayHi : function() {            |           objectA.sayHi()
+       return 'hey $(this.name)';    |           objectA.asme(question)
+              },                     |
+    askme : function(question) {     |
+// code goes here  }                 |
+}                                    |
+---- ----- ----- ----- ---- ---- ----
+
+
+TO Communicate or use the functionalities of objectA, we do that through its API i.e its methods and attributes
+
+How do API'S relate to web services??
+
+API is an way to let software components talk to each other
+The way an API is implemented and what it consits of is NOT important 
+Web services are a set of rules and technologies that enable two or more components on the web to talk to each  other
+
+so, WEB SERVICES ARE JUST API'S BUT ALL API'S ARE NOT WEB SERVICES
+
+REST API = REST WEB SERVICES
