@@ -283,3 +283,100 @@ res.json() → sends a response in JSON format.
 5.) COOKIES AND SESSIONS
 
 
+Cookies and sessions are used to maintain state between multiple HTTP requests because HTTP itself is stateless.
+
+ COOKIES
+
+A cookie is a small piece of data stored on the client's/browser's side.
+
+HOW COOKIES WORK 
+
+Client / Browser
+      │
+      │  Login Request
+      ▼
+    Server
+      │
+      │  Set-Cookie
+      ▼
+Client / Browser
+      │
+      │  Stores Cookie
+      │
+      │  Sends Cookie with future requests
+      ▼
+    Server
+
+Example
+Set-Cookie: username=Arnav;
+
+The browser stores:
+
+username = Arnav
+
+On the next request, it may send:
+
+Cookie: username=Arnav
+Uses of Cookies
+Remembering login/session information
+Storing user preferences
+Shopping carts
+Tracking user activity
+Remembering website 
+
+ SESSIONS
+
+A session stores user-related information on the server side.
+
+Usually, the browser stores only a session ID, which allows the server to find the user's session data.
+
+HOW SESSIONS WORK 
+
+Client / Browser
+      │
+      │ Login
+      ▼
+    Server
+      │
+      │ Creates Session
+      │
+      │ Session ID
+      ▼
+Client / Browser
+      │
+      │ Stores Session ID
+      │
+      │ Sends Session ID
+      ▼
+    Server
+      │
+      │ Finds session data
+      ▼
+  User's Data
+
+Example
+
+Server stores:
+
+Session ID: ABC123
+User: Arnav
+Logged in: Yes
+Role: Student
+
+Browser stores only:
+
+Session ID = ABC123
+
+KEY DIFFERENCE 
+
+Cookie = Data stored on the client/browser.
+
+Session = Data stored on the server, identified by a session ID.
+
+
+COOKIE
+Client → Stores Data
+
+SESSION
+Client → Stores ID
+Server → Stores Data
