@@ -115,3 +115,151 @@ Q1.) How can the client tell the service provider what information it wants to p
 Q2.) How can the client tell the service provider what data to operate? (Scoping information)
 
 -> Scoping should go in the URL.
+
+HOW A RESTful API Wroks??
+
+REST API
+It uses HTTP methods suitably (GET for getting data, POST for creating...)
+Scoping information (and other data) goes in the parameters part of the URI.
+It uses common data formats (most commonly JSON).
+Communication is stateless.
+
+                 REQUEST
+              ┌─────────────┐
+              │    HTTP     │                                                                        
+              │             │
+              │ JSON file   │
+              │   inside    │
+              └─────────────┘
+                     │
+                     │
+                     ▼
+┌───────────────────────┐              ┌───────────────────────┐
+│    Service Provider   │              │    Service Consumer   │
+│                       │              │                       │
+│     Component A       │◄─────────────│     Component B       │
+│                       │   Request    │                       │
+└───────────────────────┘              └───────────────────────┘
+            │                                      ▲
+            │                                      │
+            │             Response                │
+            └────────────── HTTP ─────────────────┘
+                           │
+                    ┌─────────────┐
+                    │ JSON file   │
+                    │   inside    │
+                    └─────────────┘
+SIMPLE FLOW
+Component B
+(Service Consumer)
+       │
+       │  HTTP Request
+       │  + JSON data
+       ▼
+Component A
+(Service Provider)
+       │
+       │  HTTP Response
+       │  + JSON data
+       ▼
+Component B
+(Service Consumer)
+
+KEY TERMS : 
+Service Provider: The component/server that provides the requested service or data.
+
+Service Consumer: The component/client that requests and uses the service or data.
+
+Request: Sent by the Service Consumer to the Service Provider using HTTP.
+
+Response: Sent back by the Service Provider to the Service Consumer.
+
+JSON: A commonly used data format for exchanging information between the two components.
+
+Stateless: Each request is independent; the server does not need to remember the client's previous request.
+
+//CODE EXAMPLE //
+
+const express = require('express');
+
+let app = express();
+let router = express.Router();
+
+// Very basic throwaway REST API
+
+app.use('/api', router);
+
+// API routes, aka resources and their URI
+// GET request to /api/
+
+router.get('/', (req, res) => {
+    res.json({"message":"This is the response for your GET request to the root route of the API"});
+});
+
+// GET request to get all users : /api/users
+router.get('/users', (req, res) => {
+    // retrieve all users from a database.
+    // convert the data to a json object
+    let users = {users:dbData};
+    res.json(users);
+});
+
+// add a user using a POST request to: api/users/add
+router.post('/users/add', (req, res) => {
+    // create new user using the user model.
+    // save the new user into the database
+    // send a confirmation message upon the success of the operation
+    let message = 'User has been added!';
+    res.json({"message":message});
+});
+
+
+What this code does
+
+Client
+  │
+  │ GET /api/
+  ▼
+Express Router
+  │
+  │ JSON Response
+  ▼
+"This is the response for your GET request
+ to the root route of the API"
+
+Client
+  │
+  │ GET /api/users
+  ▼
+Router
+  │
+  │ Retrieves users from database
+  ▼
+JSON Response
+{ users: dbData }
+
+Client
+  │
+  │ POST /api/users/add
+  ▼
+Router
+  │
+  ├── Create new user
+  ├── Save user to database
+  └── Send confirmation
+          │
+          ▼
+{ "message": "User has been added!" }
+
+
+Important points
+express() → creates the Express application.
+express.Router() → creates a router for defining API routes.
+app.use('/api', router) → mounts the router under /api.
+router.get() → handles GET requests.
+router.post() → handles POST requests.
+req → contains the incoming request.
+res → used to send the response.
+res.json() → sends a response in JSON format.
+/api/users → endpoint for getting users.
+/api/users/add → endpoint for adding a user
