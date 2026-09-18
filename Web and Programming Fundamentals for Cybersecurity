@@ -263,3 +263,16 @@ res → used to send the response.
 res.json() → sends a response in JSON format.
 /api/users → endpoint for getting users.
 /api/users/add → endpoint for adding a user
+
+---- ---- ---- ----- ---- ----
+
+4.) AUTHENTICATION VS AUTHORIZATION
+
+| Aspect              | Authentication                                                 | Authorization                                                         |
+| ------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **Definition**      | Verifies identity using credentials (e.g., username, password) | Determines what actions or resources an authenticated user can access |
+| **Process**         | Proving who you are                                            | Granting or denying access based on identity                          |
+| **When It Happens** | First, after login (before authorization)                      | After authentication, to control access to resources                  |
+| **Method**          | Uses tokens, sessions, or credentials                          | Uses roles, permissions, control lists (ACLs)                         |
+| **Example**         | Logging in with username and password                          | Checking if a user can access certain data                            |
+| **Key Question**    | "Who are you?"                                                 | "What can you do?"                                                    |
