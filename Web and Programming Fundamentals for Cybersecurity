@@ -276,3 +276,10 @@ res.json() → sends a response in JSON format.
 | **Method**          | Uses tokens, sessions, or credentials                          | Uses roles, permissions, control lists (ACLs)                         |
 | **Example**         | Logging in with username and password                          | Checking if a user can access certain data                            |
 | **Key Question**    | "Who are you?"                                                 | "What can you do?"                                                    |
+
+
+---- ---- ---- ----- ---- ----
+
+5.) COOKIES AND SESSIONS
+
+
