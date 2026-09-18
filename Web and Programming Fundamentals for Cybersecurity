@@ -97,3 +97,21 @@ Web services are a set of rules and technologies that enable two or more compone
 so, WEB SERVICES ARE JUST API'S BUT ALL API'S ARE NOT WEB SERVICES
 
 REST API = REST WEB SERVICES
+
+WHAT IS A REST API OR REST WEB SERVICES??
+
+-> A Rest API is an API that follows the rules of REST specification 
+
+REST 
+-> REpresentational State Transfer
+It is a specification that dictates how distributed systems on the web should communicate.
+REST Is an way to implement and use the HTTP Protocol.
+
+QUESTIONS EVERY API SHOULD ANSWER
+Q1.) How can the client tell the service provider what information it wants to perform ? (method information)
+
+-> The method information should be expressed in the HTTP Verb
+
+Q2.) How can the client tell the service provider what data to operate? (Scoping information)
+
+-> Scoping should go in the URL.
