@@ -1,1 +1,6 @@
+Free Professional Version of Burp Suite -> sudo apt update && sudo apt install -y wget && wget -qO- https://raw.githubusercontent.com/xiv3r/Burpsuite-Professional/main/install.sh | sudo bash
 
+Burp Suite is a powerfl java based framework used for Web Application Peneteration Testing. 
+It acts as an proxy that allows you to modify, inspect and replay HTTP and HTTPS traffic between a browser and web application.
+
+In simple terms Burp SUite allows you to analayze how web apllicaiton works and manipulate that to identify security vulnerabilites.
