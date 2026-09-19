@@ -380,3 +380,21 @@ Client → Stores Data
 SESSION
 Client → Stores ID
 Server → Stores Data
+
+---- ---- ---- ----- ---- ----
+
+6.) DATABASES AND SQL BASICS
+
+
+DATABASES 
+
+-> Database is a container filled with data and information whic is stored in a computer system.
+Data in any form can be stored in the database.
+The main purpose to store is to have easy accessibility, to keep it protected , analyse it etc.
+
+SQL 
+
+Structured Query Language 
+
+-> It is used for communincating between databases allowing us to
+insert, delete , modify data
