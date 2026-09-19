@@ -408,7 +408,426 @@ U -> used to update data in a table.
 D -> used to delete data froma  table.
 
 SQL Queries Commands
-A.) Select Statement 
--> retrieve data from table
+A.)  SELECT STATEMENT
 
-Syntax : SELECT coloumn1, coloumn2 FROM tablename WHERE condition
+-> SELECT is used to retrieve data from a database.
+-> It allows us to specify the columns we want to retrieve.
+-> The WHERE clause can be used to filter the data.
+
+Syntax:
+
+SELECT column1, column2
+FROM table_name
+WHERE condition;
+
+-> The condition in the WHERE clause acts as a filter.
+-> It specifies which rows should be included in the result.
+
+Example:
+
+SELECT name, age
+FROM students
+WHERE age > 18;
+
+-> This retrieves the name and age of students whose age is greater than 18.
+
+IMPORTANT:
+
+-> In most SQL database management systems, an SQL statement ends with a semicolon ;.
+
+B.) INSERT STATEMENT
+
+-> INSERT is used to add new records to a table.
+-> We specify the values for each column in the new row.
+
+Syntax:
+
+INSERT INTO table_name (column1, column2)
+VALUES (value1, value2);
+
+Example:
+
+INSERT INTO students (name, age)
+VALUES ('Arnav', 18);
+
+C.) UPDATE STATEMENT
+
+-> UPDATE is used to modify existing records in a table.
+-> It allows us to change the values of specific columns based on certain conditions.
+
+Syntax:
+
+UPDATE table_name
+SET column1 = value1
+WHERE condition;
+
+Example:
+
+UPDATE students
+SET age = 19
+WHERE name = 'Arnav';
+
+D.) DELETE STATEMENT
+
+-> DELETE is used to remove records from a table based on specified conditions.
+
+Syntax:
+
+DELETE FROM table_name
+WHERE condition;
+
+Example:
+
+DELETE FROM students
+WHERE name = 'Arnav';
+
+E.) JOIN
+
+-> JOIN is used to combine rows from two or more tables.
+-> The tables are combined based on a related column.
+
+Types of JOINs:
+
+-> INNER JOIN
+-> LEFT JOIN
+-> RIGHT JOIN
+-> FULL JOIN
+
+Basic syntax:
+
+SELECT *
+FROM table1
+JOIN table2
+ON table1.column_name = table2.column_name;
+
+-> table1 and table2 are the tables being joined.
+-> column_name is the common/related column used for the join.
+
+-> JOINs allow us to combine data from different tables and extract meaningful information from a relational database.
+
+    DATA TYPES
+
+-> Each column in a SQL table has a data type.
+-> The data type defines the type of data that the column can store.
+
+Common data types:
+
+INTEGER
+
+-> Used for whole numbers.
+
+Example:
+
+age INTEGER
+
+VARCHAR
+
+-> Used for variable-length text.
+
+Example:
+
+name VARCHAR
+
+DATE
+
+-> Used for storing dates.
+
+Example:
+
+birth_date DATE
+
+BOOLEAN
+
+-> Used for storing TRUE/FALSE values.
+
+Example:
+
+is_active BOOLEAN
+11. CONSTRAINTS
+
+-> Constraints are rules defined on tables.
+-> They help maintain data integrity.
+
+Common constraints:
+
+PRIMARY KEY
+
+-> Ensures uniqueness of a column's values.
+-> Used to uniquely identify records.
+
+FOREIGN KEY
+
+-> Maintains referential integrity between two tables.
+-> Used to create relationships between tables.
+
+NOT NULL
+
+-> Ensures that a column must have a value.
+
+UNIQUE
+
+-> Ensures that values in a column are unique.
+
+12. INDEXES
+
+-> Indexes are database objects used to speed up data retrieval.
+-> They allow the database system to find and access data more quickly.
+-> They are especially useful for large tables.
+
+13. AGGREGATE FUNCTIONS
+
+-> Aggregate functions perform calculations on a set of data.
+-> They return a single result.
+
+Common aggregate functions:
+
+SUM()
+
+-> Calculates the total.
+
+SELECT SUM(marks)
+FROM students;
+AVG()
+
+-> Calculates the average.
+
+SELECT AVG(marks)
+FROM students;
+COUNT()
+
+-> Counts records.
+
+SELECT COUNT(*)
+FROM students;
+MIN()
+
+-> Finds the minimum value.
+
+SELECT MIN(marks)
+FROM students;
+MAX()
+
+-> Finds the maximum value.
+
+SELECT MAX(marks)
+FROM students;
+14. GROUP BY
+
+-> GROUP BY is used to group data based on specific columns.
+-> It is commonly used with aggregate functions such as SUM() and COUNT().
+-> It is useful for generating summary results.
+
+Example:
+
+SELECT city, COUNT(*)
+FROM students
+GROUP BY city;
+
+-> This counts the number of students in each city.
+
+IMPORTANT:
+
+-> When using GROUP BY, the SELECT statement should include either:
+
+Columns used for grouping, or
+Aggregate functions used to calculate values within each group.
+15. ORDER BY
+
+-> ORDER BY is used to sort the result set.
+-> It can sort data in ascending or descending order.
+
+Syntax:
+
+SELECT *
+FROM table_name
+ORDER BY column_name ASC;
+
+Ascending:
+
+ASC
+
+Descending:
+
+DESC
+
+Example:
+
+SELECT *
+FROM students
+ORDER BY age DESC;
+
+-> This sorts students by age from highest to lowest.
+
+16. GROUP BY + COUNT() + ORDER BY
+
+These can be combined to create useful summary results.
+
+Example:
+
+SELECT city, COUNT(*) AS count_alias
+FROM students
+GROUP BY city
+ORDER BY count_alias DESC;
+
+-> COUNT(*) counts the number of rows in each group.
+-> AS count_alias gives a custom name to the result.
+-> GROUP BY city creates groups based on city.
+-> ORDER BY count_alias DESC sorts the groups from highest count to lowest count.
+
+17. SUBQUERY
+
+-> A subquery is also called an inner query or nested query.
+-> It is a query embedded inside another query.
+-> It can be used to retrieve data that will be used as a filter or condition in the main query.
+
+Basic idea:
+
+Main Query
+    │
+    └── Subquery
+          │
+          └── Provides data/condition
+
+-> The main advantage of a subquery is that it allows complex filtering and data retrieval in a more organized manner.
+
+18. VIEWS
+
+-> A View is a virtual table created using a query.
+-> It can be used like a regular table.
+-> Views can simplify complex queries.
+-> They can also help restrict access to sensitive data.
+
+Basic syntax:
+
+CREATE VIEW view_name AS
+SELECT column1, column2
+FROM table_name
+WHERE condition;
+19. TRANSACTIONS
+
+-> A transaction is a sequence of one or more SQL operations treated as a single unit.
+
+-> The purpose of a transaction is to ensure that a series of related database operations either:
+
+All succeed, or
+All fail.
+
+-> Transactions help maintain data integrity and consistency.
+
+Example idea:
+
+Transaction
+    │
+    ├── Operation 1
+    ├── Operation 2
+    └── Operation 3
+          │
+          ▼
+    All succeed
+          OR
+    All fail
+20. ACID PROPERTIES
+
+The reliability of transactions is commonly described using ACID properties.
+
+A → Atomicity
+C → Consistency
+I → Isolation
+D → Durability
+
+Atomicity
+
+-> A transaction is treated as a single unit.
+-> Either all operations happen or none happen.
+
+Consistency
+
+-> The database remains in a valid and consistent state.
+
+Isolation
+
+-> Transactions are isolated from each other while they are being executed.
+
+Durability
+
+-> Once a transaction is successfully completed, its changes are preserved.
+
+21. NORMALIZATION
+
+-> Normalization is the process of organizing data in a database.
+-> Its purpose is to:
+
+Eliminate redundancy
+Improve data integrity
+
+-> It involves dividing a database into tables and defining relationships between them.
+
+Example idea:
+
+Instead of unnecessarily repeating the same student information in multiple places, related information can be separated into appropriate tables and connected using keys.
+
+22. STORED PROCEDURES
+
+-> Stored Procedures are precompiled SQL code that can be stored and executed on the database server.
+-> They can help with performance and security.
+
+Basic idea:
+
+Application
+     │
+     ▼
+Stored Procedure
+     │
+     ▼
+Database Operations
+23. TRIGGERS
+
+-> A Trigger is a database object that automatically executes in response to a specific event.
+-> It can be used when data is modified.
+-> Triggers can help maintain data consistency and integrity.
+
+Common triggering events:
+
+-> INSERT
+-> UPDATE
+-> DELETE
+
+Triggers can execute:
+
+BEFORE an event
+AFTER an event
+INSTEAD OF an event (in certain cases such as views)
+
+Basic structure:
+
+CREATE [OR REPLACE] TRIGGER trigger_name
+{BEFORE | AFTER | INSTEAD OF}
+{INSERT | UPDATE | DELETE}
+ON table_name
+[FOR EACH ROW]
+
+BEGIN
+    -- SQL statements
+END;
+Important parts:
+
+trigger_name
+-> Name given to the trigger.
+
+BEFORE
+-> Trigger executes before the event.
+
+AFTER
+-> Trigger executes after the event.
+
+INSTEAD OF
+-> Trigger executes instead of the triggering event, used in certain cases such as views.
+
+INSERT | UPDATE | DELETE
+-> Specifies which action activates the trigger.
+
+FOR EACH ROW
+-> Trigger fires for each affected row.
+
+BEGIN ... END
+-> Contains the SQL statements that execute when the trigger is activated.
