@@ -1,1 +1,22 @@
-..
+https://owasp.org/projects/top-ten
+https://portswigger.net/web-security
+
+OWASP TOP 10 2025
+
+A01 -> Broken Access Control
+ What is it??
+-> When an user can access priviledged or protected data.. when they are not suppossed to,
+access data of different user.
+
+
+Lets take Scenario 1
+
+Ki url mai humne samjho.. account id badla.. like id = 5 ko change kiya to id = 6.. ki id = 6 ke account ke details mil gaye.. this is Broken access control
+this is commonly called -> IDOR (Insecure Direct Object Reference)
+Scenario 2 
+
+http://example.cpm/app/getinfo  -> original url
+if the user changes it to 
+http://example.cpm/app/admin_getinfo -> Admin ke details access ho paa rahe.. jo ki nahi hone chaiye..
+
+lets go in deep i.e Portswigger lab for Broken Access Control 
