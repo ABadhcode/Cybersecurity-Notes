@@ -52,7 +52,33 @@ How to delete the user CARLOS ??
 In the URL bar, replace /robots.txt with /administrator-panel to load the admin panel.
 Delete carlos. 
 
-LAB 2 : 
+
+
+LAB 2 : In some cases, sensitive functionality is concealed by giving it a less predictable URL. 
+This is an example of so-called "security by obscurity". 
+However, hiding sensitive functionality does not provide effective access control because users might discover the obfuscated URL in a number of ways.
+
+Imagine an application that hosts administrative functions at the following URL:
+https://insecure-website.com/administrator-panel-yb556
+
+This might not be directly guessable by an attacker. 
+However, the application might still leak the URL to users. The URL might be disclosed in JavaScript that constructs the user interface based on the user's role:
+
+<script>
+	var isAdmin = false;
+	if (isAdmin) {
+		...
+		var adminPanelTag = document.createElement('a');
+		adminPanelTag.setAttribute('href', 'https://insecure-website.com/administrator-panel-yb556');
+		adminPanelTag.innerText = 'Admin panel';
+		...
+	}
+</script>
+
+
+This script adds a link to the user's UI if they are an admin user. However, the script containing the URL is visible to all users regardless of their role. 
+
+LAB IMPLEMENTATION : 
 
  This lab has an unprotected admin panel. It's located at an unpredictable location, but the location is disclosed somewhere in the application.
 
@@ -62,3 +88,5 @@ SOLUTION :
  Review the lab home page's source using Burp Suite or your web browser's developer tools.
 Observe that it contains some JavaScript that discloses the URL of the admin panel.
 Load the admin panel and delete carlos
+
+
