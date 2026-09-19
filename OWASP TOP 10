@@ -27,7 +27,7 @@ http://example.cpm/app/admin_getinfo -> Admin ke details access ho paa rahe.. jo
 lets go in deep i.e Portswigger lab for Broken Access Control 
 
 
-Unprotected functionality
+LAB 1 : nprotected functionality
 
 At its most basic, vertical privilege escalation arises where an application does not enforce any protection for sensitive functionality.
 For example, administrative functions might be linked from an administrator's welcome page but not from a user's welcome page. 
@@ -41,6 +41,24 @@ https://insecure-website.com/robots.txt
 
 Even if the URL isn't disclosed anywhere, an attacker may be able to use a wordlist to brute-force the location of the sensitive functionality. 
 
-its lab implementation done in app ..
+LAB IMPLEMENTATION 
 
-.... Rest ALL DONE IN PORTSWIGGER WEBSITE....
+ This lab has an unprotected admin panel.
+
+Solve the lab by deleting the user carlos.
+.
+How to delete the user CARLOS ??
+->   Go to the lab and view robots.txt by appending /robots.txt to the lab URL. Notice that the Disallow line discloses the path to the admin panel.
+In the URL bar, replace /robots.txt with /administrator-panel to load the admin panel.
+Delete carlos. 
+
+LAB 2 : 
+
+ This lab has an unprotected admin panel. It's located at an unpredictable location, but the location is disclosed somewhere in the application.
+
+Solve the lab by accessing the admin panel, and using it to delete the user carlos.
+
+SOLUTION : 
+ Review the lab home page's source using Burp Suite or your web browser's developer tools.
+Observe that it contains some JavaScript that discloses the URL of the admin panel.
+Load the admin panel and delete carlos
