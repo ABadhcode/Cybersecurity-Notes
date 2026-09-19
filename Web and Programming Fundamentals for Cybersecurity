@@ -394,7 +394,21 @@ The main purpose to store is to have easy accessibility, to keep it protected , 
 
 SQL 
 
-Structured Query Language 
+Structured Query Language
 
 -> It is used for communincating between databases allowing us to
 insert, delete , modify data
+
+SQL Queries -> Commands or instructions given to databse to modify, delete etc etc data.
+
+In SQL, There is something called CRUD Operations
+C -> used to insert new records in table.
+R -> used to retrieve data from table.
+U -> used to update data in a table.
+D -> used to delete data froma  table.
+
+SQL Queries Commands
+A.) Select Statement 
+-> retrieve data from table
+
+Syntax : SELECT coloumn1, coloumn2 FROM tablename WHERE condition
