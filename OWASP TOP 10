@@ -233,6 +233,47 @@ How To Prevent It
     The web application in this room contains a weakness of this type for you to explore.
 
 
+
+A05 - INJECTION
+
+Injection has been a long-standing feature on the OWASP Top 10 list, and it is no surprise. Injection remains a classic example of web exploitation.
+What is Injection?
+
+Injection occurs when an application takes user input and mishandles it. Instead of processing the input securely, 
+the application passes it directly into a system that can execute commands or queries, such as a database, a shell, a templating engine or API.
+
+You are likely familiar with SQL Injection, where an attacker inserts an SQL query into an application's logic, such as a login form, which then gets processed by the database. 
+This happens when the web application fails to sanitise user input and instead uses it to construct the query. For instance, taking the "username" input on a login form and directly using it to query the database.
+
+The following are some classic examples of injection that you may be familiar with:
+
+    SQL Injection
+    Command Injection
+    AI Prompts
+    Server Side Template Injection (SSTI)
+
+Unfortunately, even in 2025, these types of attacks remain relevant, as evidenced by the inclusion of injection on the OWASP top ten list, not just once in 2021, but twice by 2025. Injection is of high severity and should be treated accordingly.
+How to Prevent Injection
+
+Preventing injection starts by ensuring that user input is always treated as untrusted. Rather than parsing directly, instead, take elements of the input for querying. 
+For SQL queries, this means using prepared statements and parameterised queries instead of building queries through string concatenation. 
+For OS commands, avoid functions that pass input directly to the system shell, and instead rely on safe APIs and processes that don’t invoke the shell at all.
+
+Input validation and sanitisation play a crucial role in preventing these types of attack. Escape dangerous characters, enforce strict data types and filter before the application even processes the input.
+Practical
+
+Today's practical will showcase command injection. This example illustrates Server Side Template Injection (SSTI). You will abuse an application's ability to render dynamic content to retrieve a flag stored on the machine hosting the application.
+
+You can access this portion of the practical on http://MACHINE_IP:8000 (opens in new tab).
+Recommended TryHackMe Content
+
+If you'd like to explore this type of attack in much further depth, we highly recommend the following TryHackMe content:
+
+    Injection Attacks Module
+    Command Injection
+
+
+
 A06 - INSECURE DESIGN
 
 What It Is
@@ -280,7 +321,76 @@ How To Design Securely
     Continuously monitor and test the system for logic flaws, abuse paths, and emergent risks as new features or AI components are added.
 
 
+A07 - AUTHENTICATION FAILURES
+It happens when an application can’t reliably verify or bind a user’s identity. Common issues include:
+
+    username enumeration
+    weak/guessable passwords (no lockout/rate limits)
+    logic flaws in the login/registration flow
+    insecure session or cookie handling
+
+If any of these are present, an attacker can often log in as someone else or bind a session to the wrong account.
+
+Let's try to break into the admin user's account. We know that their username is admin, so let's try to fool the application by registering a user with the name of aDmiN. 
+Start the static site attached to this task. register your account and log into the admin user's account to get your next flag!
+
+If you want more depth or broader techniques (e.g., brute force, session handling, cookies/JWT/OAuth, and MFA specifics), work through these after this room:
+
+    Authentication Bypass Room
+    Multi-Factor Authentication
+    Authentication Module
+
+
+A08: SOFTWARE OR DATA INTEGRITY FAILURES
+
+Again, Software or Data Integrity failures have been a long-standing feature on the OWASP Top 10 list, featuring twice over the last two releases. Let's explore this a bit further below.
+What Are Software or Data Integrity Failures?
+
+Software or Data Integrity Failures occur when an application relies on code, updates, or data it assumes are safe, without verifying their authenticity, integrity, or origin. 
+This includes trusting software updates without verification, loading scripts or configuration files from untrusted sources, failing to validate data that impacts application logic, or accepting data such as binaries, templates, or JSON files without confirming whether it has been altered.
+
+How to Avoid Software & Data Integrity Failures
+
+Preventing these failures begins with establishing trust boundaries. 
+Applications should never assume that code, updates, or key pieces of data are legitimate and automatically trusted; their integrity must be verified. 
+This involves using methods such as cryptographic checks (like checksums) for update packages and ensuring that only trusted sources can modify critical artefacts.
+
+Additionally, for applications, integrity and trust boundaries should also be within build processes such as CI/CD.
 
 
 
+A09 -  LOGGING & ALERTING FAILURES
 
+When applications don’t record or alert on security-relevant events, defenders can’t detect or investigate attacks. 
+Good logging underpins accountability (being able to prove who did what, when, and from where). 
+In practice, failures look like missing authentication events, vague error logs, no alerting on brute-force or privilege changes, short retention, or logs stored where attackers can tamper with them.
+
+
+A10 -  MISHANDLING OF EXCEPTIONAL CONDITIONS 
+
+Definition
+
+Occurs when an application handles unexpected errors or situations insecurely, potentially causing security vulnerabilities.
+
+Examples
+Authentication fails → application allows access.
+Database failure → application exposes sensitive information.
+Invalid input → application behaves unexpectedly.
+Server runs out of resources → application crashes or enters an unsafe state.
+Race conditions → simultaneous requests cause incorrect behavior.
+
+Important Concept: Fail Securely
+
+If something goes wrong, the application should deny access or stop safely, rather than taking an insecure fallback.
+
+Unexpected condition
+        ↓
+Application handles it
+        ↓
+❌ Insecure behavior → Vulnerability
+✅ Safe handling → Secure
+
+A10 vs A02
+
+A02: System is configured incorrectly.
+A10: Something goes wrong and is handled incorrectly.
