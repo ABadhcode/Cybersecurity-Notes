@@ -14,3 +14,7 @@ but it also gives you assurances that you're talking to the correct web server a
 
 When we access a website, your browser will need to make requests to a web server for assets such as HTML, Images, and download the responses. 
 Before that, you need to tell the browser specifically how and where to access these resources, this is where URLs will help.
+
+TAKE NOTES FROM HERE: 
+
+https://tryhackme.com/room/httpindetail
