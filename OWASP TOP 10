@@ -168,6 +168,68 @@ TRY HACK ME LAB FOR A02
 
 
 
+A03 - SOFTWARE SUPPLY CHIAN FALIURES
+
+What It Is
+Software supply chain failures happen when applications rely on components, libraries, services, or models that are compromised, outdated, or improperly verified. These weaknesses are not inherent in your code, but rather in the software and tools you depend on. Attackers exploit these weak links to inject malicious code, bypass security, or steal sensitive data.
+
+Why It Matters
+Modern applications are built from many third-party packages, APIs, and AI models. One compromised dependency can compromise your entire system, allowing attackers to gain access without ever touching your own code. Supply chain attacks can be automated and distributed, making them hard to detect and very damaging.
+
+Example
+In 2021, the SolarWinds (opens in new tab) Orion compromise showed the danger of supply chain attacks. Attackers inserted malicious code into a trusted update, affecting thousands of organisations that automatically installed it. This wasn’t a bug in SolarWinds’ core logic. It was a flaw in the software update building, verification, and distribution process.
+
+With AI, we can observe this when using unverified third-party models or fine-tuned datasets that can embed hidden behaviours, backdoors, or biased outputs, compromising systems or leaking data.
+
+Common Patterns
+
+    Using unverified or unmaintained libraries and dependencies
+    Automatically installing updates without verification
+    Over-reliance on third-party AI models without monitoring or auditing
+    Insecure build pipelines or CI/CD processes that allow tampering
+    Poor license or provenance tracking for components
+    Lack of monitoring for vulnerabilities in dependencies after deployment
+
+How To Protect The Supply Chain
+
+    Verify all third-party components, libraries, and AI models before use
+    Monitor and patch dependencies regularly
+    Sign, verify, and audit software updates and packages
+    Lock down CI/CD pipelines and build processes to prevent tampering
+    Track provenance and licensing for all dependencies
+    Implement runtime monitoring for unusual behaviour from dependencies or AI components
+    Integrate supply chain threat modelling into the SDLC, including testing, deployment, and update workflows
+
+
+A04 - Cryptographic Failures
+
+What It Is
+Cryptographic failures happen when encryption is used incorrectly or not at all. This includes weak algorithms, hard-coded keys, poor key handling, or unencrypted sensitive data. These flaws let attackers access information that should be private.
+
+Why It Matters
+Web applications rely on cryptography everywhere: protecting network traffic, securing stored data, verifying identities, and safeguarding secrets. When these controls fail, sensitive data such as passwords, tokens, or personal information can be exposed, leading to account takeovers or full-scale breaches.
+
+Attackers can exploit these flaws through man-in-the-middle attacks, brute-force attacks on weak keys, or by simply discovering secrets that were never properly protected.
+
+Common Patterns 
+
+    Using deprecated or weak algorithms like MD5, SHA-1, or ECB mode
+    Hard-coded secrets in code or configuration
+    Poor key rotation or management practices
+    Lack of encryption for sensitive data at rest or in transit
+    Self-signed or invalid TLS certificates
+    Using AI/ML systems without proper secret handling for model parameters or sensitive inputs
+
+How To Prevent It
+
+    Use strong, modern algorithms such as AES-GCM, ChaCha20-Poly1305, or enforce TLS 1.3 with valid certificates
+    Use secure key management services like Azure Key Vault, AWS KMS, or HashiCorp Vault
+    Rotate secrets and keys regularly, following defined crypto periods
+    Document and enforce policies and standard operating procedures for key lifecycle management
+    Maintain a complete inventory of certificates, keys, and their owners
+    Ensure AI models and automation agents never expose unencrypted secrets or sensitive data
+    The web application in this room contains a weakness of this type for you to explore.
+
 
 
 
